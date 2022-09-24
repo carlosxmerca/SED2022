@@ -50,6 +50,8 @@ Solicitara la frase para desencriptar el archivo.
 
 `openssl req -new -x509 -days 420 -key almuerzo.key -out jueves.crt`
 
+`-x509`: Estandar internacional que se usa en la creacion de certificados.
+
 Nos solicitará la «pass phrase» del paso anterior, y los siguientes datos de nuestra organización: 
 ```
 – Country Name (2 letter code) [AU]: SV 
@@ -57,8 +59,8 @@ Nos solicitará la «pass phrase» del paso anterior, y los siguientes datos de 
 – Locality Name (eg, city) []: Antiguo Cuscatlán 
 – Organization Name (eg, company) : UCA 
 – Organizational Unit Name (eg, section) []: TI 
-– Common Name (e.g. server FQDN or YOUR name) []: 
-– Email Address []: seguridad@dominio.com 
+– Common Name (e.g. server FQDN or YOUR name) []: Carlos Mercado
+– Email Address []: 00058820@uca.edu.sv 
 ```
 
 4. Verificamos los datos del certificado 
@@ -66,3 +68,17 @@ Nos solicitará la «pass phrase» del paso anterior, y los siguientes datos de 
 `openssl x509 -in jueves.crt -text -noout`
 
 > Practica realizada en Ubuntu Desktop
+
+
+#### Certificado en windows
+
+`$certname = "jueves"`
+```
+$cert = New-SelfSignedCertificate -Subject "CN=$certname" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
+```
+
+```
+Export-Certificate -Cert $cert -FilePath "C:$certname.cer"
+```
+
+> Practica realizada en Windows PS
