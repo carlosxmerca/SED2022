@@ -28,7 +28,8 @@ Creamos un nuevo escaneo, agregamos el dominio y el nivel de investigación que 
 This package contains an open source, easy-to-use, super-extensible and semi-automated network penetration testing tool that aids in discovery, reconnaissance and exploitation of information systems.
 
 ### SET
-social engineering toolkit
+The Social-Engineer Toolkit (SET) is an open-source penetration testing framework designed for social engineering. SET has a number of custom attack vectors that allow you to make a believable attack in a fraction of time. These kind of tools use human behaviors to trick them to the attack vectors.
+
 - Social Engineering Atacks
 - Website Atack Vectors
 - Metasploit Browser Exploit Method
