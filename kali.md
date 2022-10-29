@@ -50,4 +50,99 @@ The Metasploit Project is a computer security project that provides information 
 ### Burp suite
 Is an integrated platform/graphical tool for performing security testing of web applications. Its various tools work seamlessly together to support the entire testing process, from initial mapping and analysis of an application's attack surface, through to finding and exploiting security vulnerabilities.
 
+## Linea de ataques dentro de la red
+
+###  Mac Spoofing
+Suplantación de MAC
+
+Es necesaria la MAC de un equipo, en este caso para encontrarla (Linux), se utiliza:   
+```ifconfig -a``` 
+
+visualizar la mac asignada actualmente y la mac permanente
+```macchanger -s eth0```
+
+```
+OUTPUT:
+Current MAC:   08:00:27:f6:5e:xx (CADMUS COMPUTER SYSTEMS)
+Permanent MAC: 08:00:27:f6:5e:xx (CADMUS COMPUTER SYSTEMS)
+```
+
+Comando utilizado para cambiar la direccion MAC
+```sudo macchanger -r eth0```
+
+```
+[sudo] password for xmerca: 
+Current MAC:   08:00:27:f6:5e:xx (CADMUS COMPUTER SYSTEMS)
+Permanent MAC: 08:00:27:f6:5e:xx (CADMUS COMPUTER SYSTEMS)
+New MAC:       72:5d:0b:7e:eb:16 (unknown)
+```
+
+Obtener los proveedores de componentes asociados a las direcciones utilizando los primeros 3 pares de las direcciones para asociarlos
+```sudo macchanger -l```
+
+```
+EXAMPLES:
+18816 - f8:1e:df - Apple
+18817 - f8:22:85 - Cypress Technology CO., LTD.
+18818 - f8:27:93 - Apple, Inc
+```
+
+Cambiar la mac asociada a una interfaz en base a un registro de una empresa
+```sudo macchanger -m 00:00:00:00:00:00:00:00 eth0```
+
+Reiniciar la mac de una interfaz a la mac permanente
+```sudo macchanger -p eth0```
+
+```
+OUTPUT:
+Current MAC:   72:5d:0b:7e:eb:16 (unknown)
+Permanent MAC: 08:00:27:f6:5e:xx (CADMUS COMPUTER SYSTEMS)
+New MAC:       08:00:27:f6:5e:xx (CADMUS COMPUTER SYSTEMS)
+```
+
+### MAC flooding
+
+### WireShark
+Wireshark is a free and open-source packet analyzer. It is used for network troubleshooting, analysis, software and communications protocol development, and education. 
+
+Para realizar practica:
+
+`Sudo apt-get update`
+
+`Sudo apt-get install dsniff`
+
+Hacer una inundacion en la red 
+```sudo macof -i eth0 -n 10```
+
+### ARP poisoning
+ARP Poisoning (also known as ARP Spoofing) is a type of cyber attack carried out over a Local Area Network (LAN) that involves sending malicious ARP packets to a default gateway on a LAN in order to change the pairings in its IP to MAC address table. ARP Protocol translates IP addresses into MAC addresses. Because the ARP protocol was designed purely for efficiency and not for security, ARP Poisoning attacks are extremely easy to carry out as long as the attacker has control of a machine within the target LAN or is directly connected to it.
+
+*Corromper tabla de ARP*
+
+```
+Interface: 192.168.x.xxx --- 0xa
+  Internet Address      Physical Address      Type
+  192.168.x.x           xx-3d-xx-cd-xx-8e     dynamic
+  192.168.x.xxx         xx-ff-xx-ff-xx-ff     static
+```
+
+### Ettercap
+Ettercap is a free and open source network security tool for man-in-the-middle attacks on a LAN. It can be used for computer network protocol analysis and security auditing. 
+
+Acciones:
+`Options > Hosts > Scan hosts`
+`Options > Hosts > Hosts lists`
+`MITM > ARP poisoning`
+`View > Statistics`
+`View > Conections`
+
+### Ataque DHCP 
+### Yersinia
+Yersinia is a framework for performing layer 2 attacks. It is designed to take advantage of some weakeness in different network protocols. It pretends to be a solid framework for analyzing and testing the deployed networks and systems.
+
+ - Send DISCOVER packet
+ - send RELEASE packet
+
+*Saturara la red de solicitudes con paquetes DCHP*
+
 > Practica realizada en Kali Linux
