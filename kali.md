@@ -178,4 +178,53 @@ OUTPUT:
 [ATTEMPT] target 75.52.xxx.132 - login "Spring2017" - pass "Spring2016" - 2 of 49285 [child 0] (0/1)
 ```
 
+### John the Ripper
+John the Ripper is a free password cracking software tool. Originally developed for the Unix operating system, it can run on fifteen different platforms.
+
+1. Crear hash
+```
+prueba1.txt (MD5)
+202447d5d44ce12531f7207cb33b6bf7
+```
+
+2. Identificar tipo de hash
+Usar: `Hash-identifier`
+
+3. Utilizar John
+
+- `john --help`
+- `john --list=formats`
+
+```
+OUTPUT:
+descrypt, bsdicrypt, md5crypt, md5crypt-long, bcrypt, scrypt, LM, AFS, 
+tripcode, AndroidBackup, adxcrypt, agilekeychain, aix-ssha1, aix-ssha256, 
+aix-ssha512, andOTP, ansible, argon2, as400-des, as400-ssha1, asa-md5, 
+AxCrypt, AzureAD, BestCrypt, bfegg, Bitcoin, BitLocker, bitshares, Bitwarden, 
+```
+
+- `john --format=RAW-MD5 prueba1.txt`
+- `john --show --format=RAW-MD5 prueba1.txt`
+
+```
+OUTPUT:
+?:casa
+
+1 password hash cracked, 0 left
+```
+
+Ejemplo 2:
+
+```
+prueba2.txt (SHA3 384)
+a02effaf9361021e4b3e04180105e41ee8f9eb65704abbad60128d25544de600c94b671524c3735bfb8350c197270a8f
+```
+
+- `john --format=Raw-SHA384 prueba2.txt`
+
+Archivos de configuracion de john: `/etc/john`
+
+`john.conf  john-mail.conf  john-mail.msg
+`
+
 > Practica realizada en Kali Linux
