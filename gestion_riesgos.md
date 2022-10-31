@@ -16,5 +16,6 @@ Cualquier actividad en la cuál la información puede exponerse a un daño. Exis
 - Se debe de trabajar con datos estadísticos sobre situaciones que se han presentado en el pasado, como el grado de frecuencia que se presenta dicho acontecimiento.
 - Detectar vulnerabilidades.
 
+*Riesgo = Amenaza + Vulnerabilidad*
 *Riesgo = Probabilidad de Amenaza * Magnitud de Daño*
 
